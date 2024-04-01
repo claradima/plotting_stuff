@@ -1,16 +1,30 @@
-# Python plotting template using Sans Serif (standard font in matplotlib, ok for slides but not publications)
-# This script includes some general template parameters and two example plots - one histogram + scatter with error bars + curve
-# One color map plot
-# More templates at https://github.com/claradima/plotting_stuff
-# Script tested with python 3.10.12
-# To see examples, just run python3 python_plots_sans.py
-
-# Try to stick to these quidelines if possible; for more complicated plots, try using different markers and line types to
-# distinguish between different lines/ data point types, and check out https://www.cta-observatory.org/wp-content/uploads/2020/10/CTA_ColourBlindness_BestPractices-1.pdf for colorblind friendly color palletes and other guidelines
-
+# Template macro for Python with the SNO+ plot style using Sans Serif (standard font in matplotlib, ok for slides but NOT publications)
 # Written by Clara Dima (c.dima@sussex.ac.uk); contact me or Ana Sofia Inacio for comments/suggestions
-
-
+# Tested with python 3.10.12
+#
+# General rules:
+# - Every figure that shows SNO+ data needs to be marked (embedded on the figure) with “SNO+ Preliminary”
+# - Data should be black points with error bars (where a single data series is shown)
+# - MC should be a blue histogram (where a single model is shown)
+# - Any fit function (not based on MC) should be red (when a single fit is shown)
+# - Consistency in labelling: normalized R3 axes should be labelled "R^3 / R_AV^3"
+# - Isotropy should be #beta_14 (i.e. the greek symbol, not the word)
+# - No box around legend
+# - For publication purposes, the favoured font type has been Times (New) Roman
+#
+# For plots that compare multiple data series (e.g. optics at different wavelengths) or multiple models or fits, 
+# appropriately different colours, markers, line styles should be used to differentiate and clearly labelled in the legend.
+# Check https://www.cta-observatory.org/wp-content/uploads/2020/10/CTA_ColourBlindness_BestPractices-1.pdf 
+# for colorblind friendly color palletes and other guidelines
+#
+# When saving the figures, always choose to save in PDF format as it is a scalable vector graphic and can be scaled 
+# infinitely without losing quality.
+#
+# Specific analyses may produce plots which require styles different than the ones exemplified here. Trying as much
+# as possible to follow the style rules where possible will certainly make the approval process easier.
+#
+# To test the style and see the examples, run
+# python3 python_plots_sans.py
 
 
 import matplotlib.pyplot as plt
@@ -119,8 +133,8 @@ ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
 ax.set_title("Different kinds of plots!! so cool")
-# show legend; legend parameters set globally
-ax.legend()
+# show legend; legend parameters set globally, remove box around legend
+ax.legend(frameon=False)
 
 
 
@@ -128,7 +142,13 @@ ax.legend()
 ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary")
+
 plt.show()
+
+# save pdf
+plt.savefig("example1D_Sans.pdf", format="pdf")
 
 # EXAMPLE PLOT 2: color map
 fig, ax = plt.subplots()
@@ -152,4 +172,11 @@ fig.colorbar(img, ax=ax, label='Color Map',pad=0.01, aspect = 12)
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
 ax.set_title("Color map plot")
+
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary")
+
 plt.show()
+
+# save to pdf
+plt.savefig("example2D_Sans.pdf", format="pdf")

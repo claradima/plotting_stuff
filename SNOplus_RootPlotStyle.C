@@ -1,4 +1,5 @@
 // Template macro for C/C++ with the SNO+ plot style
+// Written by Ana Sofia Inacio (ana.carpinteiroinacio@physics.ox.ac.uk); contact me or Clara Dima for comments/suggestions
 //
 // General rules:
 // - Every figure that shows SNO+ data needs to be marked (embedded on the figure) with “SNO+ Preliminary”
@@ -12,6 +13,8 @@
 //
 // For plots that compare multiple data series (e.g. optics at different wavelengths) or multiple models or fits, 
 // appropriately different colours, markers, line styles should be used to differentiate and clearly labelled in the legend.
+// Check https://www.cta-observatory.org/wp-content/uploads/2020/10/CTA_ColourBlindness_BestPractices-1.pdf 
+// for colorblind friendly color palletes and other guidelines
 //
 // When saving the figures, always choose to save in PDF format as it is a scalable vector graphic and can be scaled 
 // infinitely without losing quality.
