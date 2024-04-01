@@ -177,4 +177,6 @@ ax.set_title("Color map plot")
 ax.text(7.35, 10, "SNO+ Preliminary")
 
 plt.show()
+
+# save to pdf
 plt.savefig("example2D_Sans.pdf", format="pdf")
