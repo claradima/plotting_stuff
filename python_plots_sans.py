@@ -128,6 +128,9 @@ ax.legend(frameon=False)
 ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary")
+
 plt.show()
 
 # EXAMPLE PLOT 2: color map
@@ -152,4 +155,8 @@ fig.colorbar(img, ax=ax, label='Color Map',pad=0.01, aspect = 12)
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
 ax.set_title("Color map plot")
+
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary")
+
 plt.show()
