@@ -1,4 +1,5 @@
 // Template macro for C/C++ with the SNO+ plot style
+// Written by Ana Sofia Inacio (ana.carpinteiroinacio@physics.ox.ac.uk); contact me or Clara Dima for comments/suggestions
 //
 // General rules:
 // - Every figure that shows SNO+ data needs to be marked (embedded on the figure) with “SNO+ Preliminary”
