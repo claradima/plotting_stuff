@@ -150,7 +150,7 @@ ax.yaxis.set_major_locator(MultipleLocator(1))
 ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
 
 
-plt.show()
+#plt.show()
 
 # save to pdf
 plt.savefig("example1D_Times.pdf", format="pdf")
@@ -192,7 +192,7 @@ for label in ax.get_yticklabels():
 # add SNO+ Preliminary label
 ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
 
-plt.show()
+#plt.show()
 
 # save to pdf
 plt.savefig("example2D_Times.pdf", format="pdf")

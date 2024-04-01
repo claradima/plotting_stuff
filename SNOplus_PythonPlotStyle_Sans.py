@@ -145,7 +145,7 @@ ax.yaxis.set_major_locator(MultipleLocator(1))
 # add SNO+ Preliminary label
 ax.text(7.35, 10, "SNO+ Preliminary")
 
-plt.show()
+#plt.show()
 
 # save pdf
 plt.savefig("example1D_Sans.pdf", format="pdf")
@@ -176,7 +176,7 @@ ax.set_title("Color map plot")
 # add SNO+ Preliminary label
 ax.text(7.35, 10, "SNO+ Preliminary")
 
-plt.show()
+#plt.show()
 
 # save to pdf
 plt.savefig("example2D_Sans.pdf", format="pdf")
