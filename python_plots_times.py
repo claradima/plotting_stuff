@@ -118,11 +118,13 @@ for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
 
 # make legend
-
 handles, labels = ax.get_legend_handles_labels()
 
 # setting legend font
 ax.legend(handles = handles, labels = labels, prop=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 12))
+
+# remove box around legend
+ax.legend(frameon=False)
 
 # adjusting the frequency of major ticks on each axis by changing number below, larger number - less dense ticks
 ax.xaxis.set_major_locator(MultipleLocator(1))
