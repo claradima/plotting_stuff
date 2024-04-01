@@ -119,8 +119,8 @@ ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
 ax.set_title("Different kinds of plots!! so cool")
-# show legend; legend parameters set globally
-ax.legend()
+# show legend; legend parameters set globally, remove box around legend
+ax.legend(frameon=False)
 
 
 
