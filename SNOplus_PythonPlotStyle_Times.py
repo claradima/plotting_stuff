@@ -152,6 +152,9 @@ ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Ti
 
 plt.show()
 
+# save to pdf
+plt.savefig("example1D_Times.pdf", format="pdf")
+
 # EXAMPLE PLOT 2: color map
 fig, ax = plt.subplots()
 
@@ -190,3 +193,6 @@ for label in ax.get_yticklabels():
 ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
 
 plt.show()
+
+# save to pdf
+plt.savefig("example2D_Times.pdf", format="pdf")
