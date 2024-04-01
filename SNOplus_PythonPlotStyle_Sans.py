@@ -147,6 +147,9 @@ ax.text(7.35, 10, "SNO+ Preliminary")
 
 plt.show()
 
+# save pdf
+plt.savefig("example1D_Sans.pdf", format="pdf")
+
 # EXAMPLE PLOT 2: color map
 fig, ax = plt.subplots()
 # can add figsize here if globally set size is not suitable, such as:
@@ -174,3 +177,4 @@ ax.set_title("Color map plot")
 ax.text(7.35, 10, "SNO+ Preliminary")
 
 plt.show()
+plt.savefig("example2D_Sans.pdf", format="pdf")
