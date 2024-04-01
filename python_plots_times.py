@@ -130,6 +130,9 @@ ax.legend(frameon=False)
 ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
+
 
 plt.show()
 
@@ -166,5 +169,8 @@ for label in ax.get_xticklabels():
 
 for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
+
+# add SNO+ Preliminary label
+ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
 
 plt.show()
