@@ -77,6 +77,12 @@ plt.rcParams['axes.titlepad'] = 12
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
+# set ticks on both sides of x and y axes
+plt.rcParams['xtick.top'] = True
+plt.rcParams['xtick.bottom'] = True
+plt.rcParams['ytick.left'] = True
+plt.rcParams['ytick.right'] = True
+
 # define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
 
 # each of these are pretty self-explanatory, can modify them if needed e.g. can set custom markers and colors if different data types are plotted
@@ -155,6 +161,7 @@ ax.yaxis.set_major_locator(MultipleLocator(1))
 # change position and color so that it's visible
 # try to leave fontsize as it is for consistency, but can make smaller to suit the plot
 ax.text(6.35, 10, "SNO+ Preliminary", color = 'black', fontproperties=paper_font, size = 23)
+
 
 # there is an issue with saving the plots if you use plt.show() first
 # uncomment line below to show plot without saving if needed

@@ -81,6 +81,12 @@ plt.rcParams['axes.titlepad'] = 12
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
+# set ticks on both sides of x and y axes
+plt.rcParams['xtick.top'] = True
+plt.rcParams['xtick.bottom'] = True
+plt.rcParams['ytick.left'] = True
+plt.rcParams['ytick.right'] = True
+
 # define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
 
 # each of these is pretty self-explanatory, can modify them if needed e.g. can set custom markers and colors if different data types are plotted
