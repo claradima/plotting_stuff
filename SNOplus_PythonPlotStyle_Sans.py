@@ -33,8 +33,8 @@ import matplotlib.font_manager as fm
 import numpy as np
 from matplotlib.ticker import MultipleLocator
 
-# Setting font parameters globally
-# Note - can only do this with sans serif because it already exists in matplotlib; it doesn't work for Times New Roman where we need font file
+# setting font parameters globally
+# note - can only do this with sans serif because it already exists in matplotlib; it doesn't work for Times New Roman where we need font file
 
 plt.rcParams['font.family'] = 'sans-serif'
 # set default font size
@@ -52,7 +52,7 @@ plt.rcParams['legend.fontsize'] = 12
 plt.rcParams["xaxis.labellocation"] = 'right'
 plt.rcParams["yaxis.labellocation"] = 'top'
 
-#set other global parameters with rcParams -- copy whole block below before plotting code to set plotting template globally
+# set other global parameters with rcParams -- copy whole block below before plotting code to set plotting template globally
 
 # set height and width of big markings on axis x
 plt.rcParams['xtick.major.size'] = 6
@@ -82,6 +82,9 @@ plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
 # define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
+
+# each of these is pretty self-explanatory, can modify them if needed e.g. can set custom markers and colors if different data types are plotted
+
 histogram_style = {
     'histtype': 'step',
     'color': 'blue',
@@ -106,7 +109,6 @@ line_plot_style = {
     'color': 'red',
     'linewidth': 2
 }
-
 
 # Example data for plotting
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -136,18 +138,22 @@ ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
 ax.set_title("Different kinds of plots!! so cool")
+
 # show legend; legend parameters set globally, remove box around legend
 ax.legend(frameon=False)
-
-
 
 # adjusting the frequency of major ticks by changing number below;  larger number - less dense ticks
 ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary")
+# parameters: x posiiton of label, y position, text, color, font size
+# change position and color so that it's visible
+# try to leave fontsize as it is for consistency, but can make smaller to suit the plot
+ax.text(6.35, 10, "SNO+ Preliminary", color = 'black', fontsize=20)
 
+# there is an issue with saving the plots if you use plt.show() first
+# uncomment line below to show plot without saving if needed
 #plt.show()
 
 # save pdf
@@ -158,13 +164,18 @@ fig, ax = plt.subplots()
 # can add figsize here if globally set size is not suitable, such as:
 # fig, ax = plt.subplots(figsize=(18, 10))
 
+# generate some data to plot
+# generate x and y coordinates for a grid
+x = np.linspace(0, 1, 30)
+y = np.linspace(0, 1, 30)
+X, Y = np.meshgrid(x, y)
 
-# generate some random data points
-data = np.random.random((30, 30))
+# arbitrary function of coordinates to plot
+data = (X + Y) / 2
 
-# plot as color map
-# viridis is the default and it is colorblind friendly :)
-
+# plot as a color map
+# viridis is the default and it is colorblind-friendly :)
+fig, ax = plt.subplots()
 img = ax.imshow(data, cmap='viridis')
 
 # show color map
@@ -177,8 +188,13 @@ ax.set_ylabel('This is the y axis')
 ax.set_title("Color map plot")
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary")
+# parameters: x posiiton of label, y position, text, color, font size
+# change position and color so that it's visible
+# try to leave fontsize as it is for consistency, but can make smaller to suit the plot
+ax.text(3, 4, "SNO+ Preliminary", color = 'white', fontsize=20)
 
+# there is an issue with saving the plots if you use plt.show() first
+# uncomment line below to show plot without saving if needed
 #plt.show()
 
 # save to pdf

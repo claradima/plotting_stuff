@@ -35,26 +35,20 @@ import numpy as np
 from matplotlib.ticker import MultipleLocator
 
 # set the font from font file
+# most font parameters not set globally (unlike in the sans script) because this doesn't work when using a separate font file
+
 personal_path = os.path.dirname(os.path.realpath(__file__))
 font_file = 'Times_New_Roman_Normal.ttf'
 font_path = personal_path + '/' + font_file
-paper_font = fm.FontProperties(fname=font_path)
-# set default font size
-plt.rcParams['font.size'] = 12
-# set title font size
-plt.rcParams['axes.titlesize'] = 20
-# set axis label font size
-plt.rcParams['axes.labelsize'] = 16
-# set tick label size on x and y axis
-plt.rcParams['xtick.labelsize'] = 14
-plt.rcParams['ytick.labelsize'] = 14
-# set legend font size
-plt.rcParams['legend.fontsize'] = 12
+
+# the size here only affects the tick labels because everything else is set for individual plots
+paper_font = fm.FontProperties(fname=font_path, size = 16)
+
 # set position of axis labels
 plt.rcParams["xaxis.labellocation"] = 'right'
 plt.rcParams["yaxis.labellocation"] = 'top'
 
-# set global rcParams -- copy whole block below before plotting code to set plotting template globally
+# set global parameters with rcParams -- copy whole block below before plotting code to set plotting template globally
 
 # set height and width of big markings on axis x
 plt.rcParams['xtick.major.size'] = 6
@@ -85,7 +79,7 @@ plt.rcParams['ytick.direction'] = 'in'
 
 # define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
 
-# each of these are pretty self-explanatory, can modify them if needed
+# each of these are pretty self-explanatory, can modify them if needed e.g. can set custom markers and colors if different data types are plotted
 
 histogram_style = {
     'histtype': 'step', 
@@ -128,7 +122,6 @@ ax.minorticks_on()
 
 # for any of the plot types below, if you don't want to use the globally set parameters, copy parameters individually instead of writing **set_style and adjust values how you want 
 
-
 # plot histogram
 ax.hist(y, **histogram_style, label='Histogram')
 # plor line
@@ -143,30 +136,28 @@ ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 20)
 ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 20)
 ax.set_title("Different kinds of plots!! so cool", fontproperties=paper_font, size = 22)
 
-
+# set font for labels for ticks on both axes; size set in definition of paper_font (it's best not to change it but can change it there if really needed)
 for label in ax.get_xticklabels():
     label.set_fontproperties(paper_font)
 
 for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
 
-# make legend
-handles, labels = ax.get_legend_handles_labels()
-
-# setting legend font
-ax.legend(handles = handles, labels = labels, prop=paper_font, fontsize = 12)
-
-# remove box around legend
-ax.legend(frameon=False)
+# show legend; remove box around legend, set font properties
+ax.legend(frameon=False, prop=fm.FontProperties(fname=font_path, size = 14))
 
 # adjusting the frequency of major ticks on each axis by changing number below, larger number - less dense ticks
 ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=paper_font, size = 14)
+# parameters: x posiiton of label, y position, text, color, font, font size
+# change position and color so that it's visible
+# try to leave fontsize as it is for consistency, but can make smaller to suit the plot
+ax.text(6.35, 10, "SNO+ Preliminary", color = 'black', fontproperties=paper_font, size = 23)
 
-
+# there is an issue with saving the plots if you use plt.show() first
+# uncomment line below to show plot without saving if needed
 #plt.show()
 
 # save to pdf
@@ -178,12 +169,18 @@ fig, ax = plt.subplots()
 #can add figsize here if globally set size is not suitable, such as:
 #fig, ax = plt.subplots(figsize=(18, 10))
 
-# generate some random data to plot
-data = np.random.random((30, 30))
+# generate some data to plot
+# generate x and y coordinates for a grid
+x = np.linspace(0, 1, 30)  # adjust range as needed
+y = np.linspace(0, 1, 30)  # adjust range as needed
+X, Y = np.meshgrid(x, y)
 
-# plot as color map
-# viridis is the default and it is colorblind friendly :)
+# arbitrary function of coordinates to plot
+data = (X + Y) / 2
 
+# plot as a color map
+# viridis is the default and it is colorblind-friendly :)
+fig, ax = plt.subplots()
 img = ax.imshow(data, cmap='viridis')
 
 # show color map
@@ -207,8 +204,13 @@ for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=paper_font, size = 14)
+# parameters: x posiiton of label, y position, text, color, font size
+# change position and color so that it's visible
+# try to leave fontsize as it is for consistency, but can make smaller to suit the plot
+ax.text(3, 4, "SNO+ Preliminary",color = 'white', fontproperties=paper_font, size = 23)
 
+# there is an issue with saving the plots if you use plt.show() first
+# uncomment line below to show plot without saving if needed
 #plt.show()
 
 # save to pdf
