@@ -48,6 +48,9 @@ plt.rcParams['xtick.labelsize'] = 14
 plt.rcParams['ytick.labelsize'] = 14
 # set legend font size
 plt.rcParams['legend.fontsize'] = 12
+# set position of axis labels
+plt.rcParams["xaxis.labellocation"] = 'right'
+plt.rcParams["yaxis.labellocation"] = 'top'
 
 #set other global parameters with rcParams -- copy whole block below before plotting code to set plotting template globally
 

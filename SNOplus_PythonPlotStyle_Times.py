@@ -27,7 +27,7 @@
 # To test the style and see the examples, run
 # python3 python_plots_times.py
 
-
+import os
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import matplotlib.font_manager as fm
@@ -35,36 +35,24 @@ import numpy as np
 from matplotlib.ticker import MultipleLocator
 
 # set the font from font file
-paper_font = fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 16)
-
-# define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
-
-# each of these are pretty self-explanatory, can modify them if needed
-
-histogram_style = {
-    'histtype': 'step', 
-    'color': 'blue',
-    'alpha': 0.7,
-    'linewidth': 1.5
-}
-
-scatter_style = {
-    'marker': 's',
-    'color': 'black',
-    's': 25
-}
-
-errorbar_style = {
-    'linestyle': 'None',
-    'color': 'black',
-    'capsize': 1.5
-}
-
-line_plot_style = {
-    'linestyle': '-',
-    'color': 'red',
-    'linewidth': 2
-}
+personal_path = os.path.dirname(os.path.realpath(__file__))
+font_file = 'Times_New_Roman_Normal.ttf'
+font_path = personal_path + '/' + font_file
+paper_font = fm.FontProperties(fname=font_path)
+# set default font size
+plt.rcParams['font.size'] = 12
+# set title font size
+plt.rcParams['axes.titlesize'] = 20
+# set axis label font size
+plt.rcParams['axes.labelsize'] = 16
+# set tick label size on x and y axis
+plt.rcParams['xtick.labelsize'] = 14
+plt.rcParams['ytick.labelsize'] = 14
+# set legend font size
+plt.rcParams['legend.fontsize'] = 12
+# set position of axis labels
+plt.rcParams["xaxis.labellocation"] = 'right'
+plt.rcParams["yaxis.labellocation"] = 'top'
 
 # set global rcParams -- copy whole block below before plotting code to set plotting template globally
 
@@ -94,6 +82,35 @@ plt.rcParams['axes.titlepad'] = 12
 # set markings on axis to show on the inside of the plot, can change if needed
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
+
+# define custom styles -- add **set_style to plot, as shown in EXAMPLE PLOT 1 below
+
+# each of these are pretty self-explanatory, can modify them if needed
+
+histogram_style = {
+    'histtype': 'step', 
+    'color': 'blue',
+    'alpha': 0.7,
+    'linewidth': 1.5
+}
+
+scatter_style = {
+    'marker': 's',
+    'color': 'black',
+    's': 25
+}
+
+errorbar_style = {
+    'linestyle': 'None',
+    'color': 'black',
+    'capsize': 1.5
+}
+
+line_plot_style = {
+    'linestyle': '-',
+    'color': 'red',
+    'linewidth': 2
+}
 
 # Example data for plotting
 x = [1.1, 2.5, 3.2, 4, 4.5, 6.7, 7, 8, 9, 10]
@@ -137,7 +154,7 @@ for label in ax.get_yticklabels():
 handles, labels = ax.get_legend_handles_labels()
 
 # setting legend font
-ax.legend(handles = handles, labels = labels, prop=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 12))
+ax.legend(handles = handles, labels = labels, prop=paper_font, fontsize = 12)
 
 # remove box around legend
 ax.legend(frameon=False)
@@ -147,7 +164,7 @@ ax.xaxis.set_major_locator(MultipleLocator(1))
 ax.yaxis.set_major_locator(MultipleLocator(1))
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
+ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=paper_font, size = 14)
 
 
 #plt.show()
@@ -190,7 +207,7 @@ for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
 
 # add SNO+ Preliminary label
-ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=fm.FontProperties(fname='Times_New_Roman_Normal.ttf', size = 14))
+ax.text(7.35, 10, "SNO+ Preliminary", fontproperties=paper_font, size = 14)
 
 #plt.show()
 
