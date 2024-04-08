@@ -42,7 +42,7 @@
 #include "TGraph.h"
 #include "TGraphErrors.h"
 
-void SNOplus_RootPublicationStyle(){
+void SNOplus_RootPlotStyle(){
 
   ////               ////
   //// Style Options ////
@@ -89,14 +89,14 @@ void SNOplus_RootPublicationStyle(){
   snoStyle->SetTitleFont(132,"x");
   snoStyle->SetTitleFont(132,"y");
   snoStyle->SetTitleFont(132,"z");
-  snoStyle->SetLabelSize(0.04,"x");
-  snoStyle->SetTitleSize(0.05,"x");
+  snoStyle->SetLabelSize(0.05,"x");
+  snoStyle->SetTitleSize(0.06,"x");
   snoStyle->SetTitleColor(1,"x");
-  snoStyle->SetLabelSize(0.04,"y");
-  snoStyle->SetTitleSize(0.05,"y");
+  snoStyle->SetLabelSize(0.05,"y");
+  snoStyle->SetTitleSize(0.06,"y");
   snoStyle->SetTitleColor(1,"y");
-  snoStyle->SetLabelSize(0.04,"z");
-  snoStyle->SetTitleSize(0.05,"z");
+  snoStyle->SetLabelSize(0.05,"z");
+  snoStyle->SetTitleSize(0.06,"z");
   snoStyle->SetTitleColor(1,"z");
   snoStyle->SetPadTickX(1);
   snoStyle->SetPadTickY(1);
@@ -142,6 +142,8 @@ void SNOplus_RootPublicationStyle(){
   Double_t height = 600; // Height of the TCanvas
   c1->SetCanvasSize(width,height);
   c1->SetWindowSize(width + (width - c1->GetWw()), height + (height - c1->GetWh()));
+  c1->SetLeftMargin(0.2);
+  c1->SetBottomMargin(0.2);
   c1->cd();
   
   ////               ////
@@ -194,6 +196,8 @@ void SNOplus_RootPublicationStyle(){
   c2->SetCanvasSize(width,height);
   c2->SetWindowSize(width + (width - c2->GetWw()), height + (height - c2->GetWh()));
   c2->SetRightMargin(0.2);
+  c2->SetLeftMargin(0.2);
+  c2->SetBottomMargin(0.2);
   c2->cd();
 
   TH2F *h2 = new TH2F("h2","",40,-4.0,4.0,40,-20.0,20.0);
