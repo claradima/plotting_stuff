@@ -42,7 +42,7 @@ font_file = 'Times_New_Roman_Normal.ttf'
 font_path = personal_path + '/' + font_file
 
 # the size here only affects the tick labels because everything else is set for individual plots
-paper_font = fm.FontProperties(fname=font_path, size = 16)
+paper_font = fm.FontProperties(fname=font_path, size = 24)
 
 # set position of axis labels
 plt.rcParams["xaxis.labellocation"] = 'right'
@@ -91,7 +91,7 @@ histogram_style = {
     'histtype': 'step', 
     'color': 'blue',
     'alpha': 0.7,
-    'linewidth': 1.5
+    'linewidth': 2
 }
 
 scatter_style = {
@@ -109,7 +109,7 @@ errorbar_style = {
 line_plot_style = {
     'linestyle': '-',
     'color': 'red',
-    'linewidth': 2
+    'linewidth': 2.5
 }
 
 # Example data for plotting
@@ -138,9 +138,9 @@ ax.scatter(x, y, **scatter_style, label='Scatter')
 ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 
 # for Times New Roman, need to set font sizes here instead of as a global params
-ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 20)
-ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 20)
-ax.set_title("Different kinds of plots!! so cool", fontproperties=paper_font, size = 22)
+ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 26)
+ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 26)
+#ax.set_title("Different kinds of plots!! so cool", fontproperties=paper_font, size = 22)
 
 # set font for labels for ticks on both axes; size set in definition of paper_font (it's best not to change it but can change it there if really needed)
 for label in ax.get_xticklabels():
@@ -150,7 +150,7 @@ for label in ax.get_yticklabels():
     label.set_fontproperties(paper_font)
 
 # show legend; remove box around legend, set font properties
-ax.legend(frameon=False, prop=fm.FontProperties(fname=font_path, size = 14))
+ax.legend(frameon=False, prop=fm.FontProperties(fname=font_path, size = 16))
 
 # adjusting the frequency of major ticks on each axis by changing number below, larger number - less dense ticks
 ax.xaxis.set_major_locator(MultipleLocator(1))
@@ -160,7 +160,7 @@ ax.yaxis.set_major_locator(MultipleLocator(1))
 # parameters: x posiiton of label, y position, text, color, font, font size
 # change position and color so that it's visible
 # try to leave fontsize as it is for consistency, but can make smaller to suit the plot
-ax.text(6.35, 10, "SNO+ Preliminary", color = 'black', fontproperties=paper_font, size = 23)
+ax.text(5.8, 10, "SNO+ Preliminary", color = 'black', fontproperties=paper_font, size = 26)
 
 
 # there is an issue with saving the plots if you use plt.show() first
@@ -197,12 +197,16 @@ colorbar = fig.colorbar(img, ax=ax, label='Color Map', pad=0.01, aspect = 12)
 
 # set font properties for colorbar label
 colorbar.set_label('Color Map', fontproperties=paper_font)
-colorbar.ax.tick_params(labelsize=12)
+
+#set font of tick labels of colorbar
+
+for ticklabel in colorbar.ax.get_yticklabels():
+	ticklabel.set_fontproperties(paper_font)
 
 # for Times New Roman, need to set font sizes here instead of as a global params
-ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 20)
-ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 20)
-ax.set_title("Color map plot", fontproperties=paper_font, size = 22)
+ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 26)
+ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 26)
+#ax.set_title("Color map plot", fontproperties=paper_font, size = 22)
 
 for label in ax.get_xticklabels():
     label.set_fontproperties(paper_font)
@@ -214,7 +218,7 @@ for label in ax.get_yticklabels():
 # parameters: x posiiton of label, y position, text, color, font size
 # change position and color so that it's visible
 # try to leave fontsize as it is for consistency, but can make smaller to suit the plot
-ax.text(3, 4, "SNO+ Preliminary",color = 'white', fontproperties=paper_font, size = 23)
+ax.text(2.5, 3.5, "SNO+ Preliminary",color = 'white', fontproperties=paper_font, size = 26)
 
 # there is an issue with saving the plots if you use plt.show() first
 # uncomment line below to show plot without saving if needed

@@ -42,12 +42,12 @@ plt.rcParams['font.size'] = 12
 # set title font size
 plt.rcParams['axes.titlesize'] = 20
 # set axis label font size
-plt.rcParams['axes.labelsize'] = 16
+plt.rcParams['axes.labelsize'] = 22
 # set tick label size on x and y axis
-plt.rcParams['xtick.labelsize'] = 14
-plt.rcParams['ytick.labelsize'] = 14
+plt.rcParams['xtick.labelsize'] = 22
+plt.rcParams['ytick.labelsize'] = 22
 # set legend font size
-plt.rcParams['legend.fontsize'] = 12
+plt.rcParams['legend.fontsize'] = 15
 # set position of axis labels
 plt.rcParams["xaxis.labellocation"] = 'right'
 plt.rcParams["yaxis.labellocation"] = 'top'
@@ -95,7 +95,7 @@ histogram_style = {
     'histtype': 'step',
     'color': 'blue',
     'alpha': 0.7,
-    'linewidth': 1.5
+    'linewidth': 2
 }
 
 scatter_style = {
@@ -113,7 +113,7 @@ errorbar_style = {
 line_plot_style = {
     'linestyle': '-',
     'color': 'red',
-    'linewidth': 2
+    'linewidth': 2.5
 }
 
 # Example data for plotting
@@ -143,7 +143,7 @@ ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 # set titles 
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
-ax.set_title("Different kinds of plots!! so cool")
+#ax.set_title("Different kinds of plots!! so cool")
 
 # show legend; legend parameters set globally, remove box around legend
 ax.legend(frameon=False)
@@ -156,7 +156,7 @@ ax.yaxis.set_major_locator(MultipleLocator(1))
 # parameters: x posiiton of label, y position, text, color, font size
 # change position and color so that it's visible
 # try to leave fontsize as it is for consistency, but can make smaller to suit the plot
-ax.text(6.35, 10, "SNO+ Preliminary", color = 'black', fontsize=20)
+ax.text(6.2, 10, "SNO+ Preliminary", color = 'black', fontsize=22)
 
 # there is an issue with saving the plots if you use plt.show() first
 # uncomment line below to show plot without saving if needed
@@ -191,7 +191,7 @@ fig.colorbar(img, ax=ax, label='Color Map',pad=0.01, aspect = 12)
 
 ax.set_xlabel('This is the x axis')
 ax.set_ylabel('This is the y axis')
-ax.set_title("Color map plot")
+#ax.set_title("Color map plot")
 
 # add SNO+ Preliminary label
 # parameters: x posiiton of label, y position, text, color, font size
