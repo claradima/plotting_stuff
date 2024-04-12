@@ -138,8 +138,13 @@ ax.scatter(x, y, **scatter_style, label='Scatter')
 ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 
 # for Times New Roman, need to set font sizes here instead of as a global params
-ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 26)
-ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 26)
+
+# NOTE: The Times New Roman font file does not include greek characters, and is not compatible with mathtext
+# For these cases, use the command math_fontfamily = 'stix' as exemplified below, which should result
+# in math characters aesthetically similar to TNR
+ax.set_xlabel(r'${\Delta}$R (m)', fontproperties=paper_font, math_fontfamily = 'stix', size = 26)
+ax.set_ylabel(r'${\alpha \beta \gamma}$', fontproperties=paper_font, math_fontfamily = 'stix', size = 26)
+
 #ax.set_title("Different kinds of plots!! so cool", fontproperties=paper_font, size = 22)
 
 # set font for labels for ticks on both axes; size set in definition of paper_font (it's best not to change it but can change it there if really needed)
@@ -204,8 +209,12 @@ for ticklabel in colorbar.ax.get_yticklabels():
 	ticklabel.set_fontproperties(paper_font)
 
 # for Times New Roman, need to set font sizes here instead of as a global params
-ax.set_xlabel('This is the x axis', fontproperties=paper_font, size = 26)
-ax.set_ylabel('This is the y axis', fontproperties=paper_font, size = 26)
+# NOTE: The Times New Roman font file does not include greek characters, and is not compatible with mathtext
+# For these cases, use the command math_fontfamily = 'stix' as exemplified below, which should result
+# in math characters aesthetically similar to TNR
+ax.set_xlabel(r'${\Delta}$R (m)', fontproperties=paper_font, math_fontfamily = 'stix', size = 26)
+ax.set_ylabel(r'${\alpha \beta \gamma}$', fontproperties=paper_font, math_fontfamily = 'stix', size = 26)
+
 #ax.set_title("Color map plot", fontproperties=paper_font, size = 22)
 
 for label in ax.get_xticklabels():

@@ -141,8 +141,8 @@ ax.scatter(x, y, **scatter_style, label='Scatter')
 ax.errorbar(x, y, yerr=0.5, **errorbar_style, label='Errorbar')
 
 # set titles 
-ax.set_xlabel('This is the x axis')
-ax.set_ylabel('This is the y axis')
+ax.set_xlabel(r'${\Delta}$R (m)')
+ax.set_ylabel(r'${\alpha \beta \gamma}$')
 #ax.set_title("Different kinds of plots!! so cool")
 
 # show legend; legend parameters set globally, remove box around legend
@@ -189,8 +189,8 @@ img = ax.imshow(data, cmap='viridis')
 # aspect sets aspect ratio of color bar;  increase the number to make it less thick
 fig.colorbar(img, ax=ax, label='Color Map',pad=0.01, aspect = 12)
 
-ax.set_xlabel('This is the x axis')
-ax.set_ylabel('This is the y axis')
+ax.set_xlabel(r'${\Delta}$R (m)')
+ax.set_ylabel(r'${\alpha \beta \gamma}$')
 #ax.set_title("Color map plot")
 
 # add SNO+ Preliminary label
